@@ -19,8 +19,21 @@
         <div class="container">
             <h1 class="display-4">Work Day Scheduler</h1>
             <p class="lead">A simple calendar app to for scheduling your day</p>
-            <p id="currentDay" class="lead"></p>
+<script type="text/javascript" class="calendarDate">
+
+let date = new Date();
+document.write(date);
+
+
+</script>
+
+
+            <!-- <p id="currentDay" class="lead"></p> -->
             <!-- Need to pull Date from window  -->
+            
+
+
+
             <!-- GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
 THEN the current day is displayed at the top of the calendar
@@ -41,13 +54,22 @@ THEN the saved events persist
 
     <div class="card">
         <div class="card-body">
-            <div class="timePlaceHolder" id="timePlaceHolder">
-                <span class="badge badge-light">Time Goes Here</span>
+            <!-- <input id="hourPlaceHolder" type="text"></input> -->
+            <!-- <div class="timePlaceHolder" id="timePlaceHolder">
+                <span class="badge badge-light" id="eventSpan0">Time Goes Here</span>
             <input type="text" role="alert" class="form-control past present future"
             placeholder="Things to do" aria-label="Things to do"
             aria-describedby="button-addon2">
-            <button class="btn btn-save" type="button" id="button-addon2">Save</button>
+            <button class="btn btn-save" type="button" id="button-addon1 saveButton">Save</button>
             </div>
+
+            <div class="timePlaceHolder" id="timePlaceHolder">
+                <span class="badge badge-light" id="eventSpan1">Time Goes Here</span>
+            <input type="text" role="alert" class="form-control past present future"
+            placeholder="Things to do" aria-label="Things to do"
+            aria-describedby="button-addon2">
+            <button class="btn btn-save" type="button" id="button-addon2 saveButton">Save</button>
+            </div> -->
             
             <!-- this is the lower 3 text entries -->
             <div class="currentEvent hide">

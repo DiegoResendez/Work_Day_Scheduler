@@ -30,6 +30,14 @@ body {
     border-radius: 15px;
   }
   
+  .timePlaceHolder{
+    text-align: center;
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 10px;
+  }
+
+
   .card {
     justify-content: center;
     margin: auto;
