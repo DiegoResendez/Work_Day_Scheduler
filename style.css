@@ -31,17 +31,26 @@ body {
   }
   
   .timePlaceHolder{
+    box-sizing: content-box;
     text-align: center;
     background-color: transparent;
     border-radius: 0;
     border-bottom: 10px;
   }
 
+  .container .content {
+    box-sizing: content-box;
+  }
+
+.badge{
+  float: left;
+}
 
   .card {
     justify-content: center;
     margin: auto;
-    padding: 0;
+    padding: 20px;
+    max-width: 80%;
   }
 
   .row {

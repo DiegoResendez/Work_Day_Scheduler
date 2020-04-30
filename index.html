@@ -19,22 +19,17 @@
         <div class="container">
             <h1 class="display-4">Work Day Scheduler</h1>
             <p class="lead">A simple calendar app to for scheduling your day</p>
-<script type="text/javascript" class="calendarDate">
+            <script type="text/javascript" class="calendarDate" id="timeStamp">
 
-let date = new Date();
-document.write(date);
-
-
-</script>
+                let date = new Date();
+                document.write(date);
+            </script>
 
 
-            <!-- <p id="currentDay" class="lead"></p> -->
-            <!-- Need to pull Date from window  -->
-            
+        </div>
+    </div>
 
-
-
-            <!-- GIVEN I am using a daily planner to create a schedule
+    <!-- GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
 THEN the current day is displayed at the top of the calendar
 WHEN I scroll down
@@ -49,30 +44,164 @@ WHEN I refresh the page
 THEN the saved events persist
  -->
 
+    <div class="card">
+        <div class="card-body">
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan1 8AM" type="text">8:00 AM</span>
+                    <a class="userInput" id="eventID3" type="text"></a> 
+                    <!-- possible 2nd id="8AMtextInput" -->
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="btn button-addon2 save-btn 8AMsave-btn">Save</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan2 9AM" type="text">9:00 AM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan3 10AM" type="text">10:00 AM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan4 11AM" type="text">11:00 AM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan5 12PM" type="text">12:00 PM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan6 1PM" type="text">1:00 PM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan7 2PM" type="text">2:00 PM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan8 3PM" type="text">3:00 PM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan9 4PM" type="text">4:00 PM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan10 5PM" type="text">5:00 PM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="schedule"></div>
+            <div class="futureEvent emptyEvent" id="defaultEvent">
+                <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan"></div>
+                    <span class="badge badge-light" id="timeDisplay eventSpan11 6PM" type="text">6:00 PM</span>
+                    <a class="userInput" id="eventID3" type="text"></a>
+                    <input type="text" role="alert" id="textInput" class="form-control alert alert-light past present future"
+                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary save-btn" type="button" id="button-addon2">Save</button>
+                    </div>
+                </div>
+            </div> -->
+
+
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <!-- <input id="hourPlaceHolder" type="text"></input> -->
-            <!-- <div class="timePlaceHolder" id="timePlaceHolder">
-                <span class="badge badge-light" id="eventSpan0">Time Goes Here</span>
-            <input type="text" role="alert" class="form-control past present future"
-            placeholder="Things to do" aria-label="Things to do"
-            aria-describedby="button-addon2">
-            <button class="btn btn-save" type="button" id="button-addon1 saveButton">Save</button>
-            </div>
-
-            <div class="timePlaceHolder" id="timePlaceHolder">
-                <span class="badge badge-light" id="eventSpan1">Time Goes Here</span>
-            <input type="text" role="alert" class="form-control past present future"
-            placeholder="Things to do" aria-label="Things to do"
-            aria-describedby="button-addon2">
-            <button class="btn btn-save" type="button" id="button-addon2 saveButton">Save</button>
-            </div> -->
-            
-            <!-- this is the lower 3 text entries -->
-            <div class="currentEvent hide">
+    <!-- this is the lower 3 text entries -->
+    <!-- <div class="container currentEvent hide">
                 <div class="input-group mb-3">
                     <a class="userInput" id="eventID3" type="text"></a>
                     <input type="text" role="alert" class="form-control alert alert-danger"
@@ -82,19 +211,21 @@ THEN the saved events persist
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Save</button>
                     </div>
                 </div>
-            </div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
+            </div> -->
+    <!-- <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
+                    <div class="timePlaceHolder" id="eventSpan1"></div>
+                    <span class="badge badge-light" id="eventSpan1">Time Goes Here</span>
                     <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" class="form-control alert alert-light"
+                    <input type="text" role="alert" class="form-control alert alert-light past present future"
                         placeholder="Things to do" aria-label="Things to do"
                         aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Save</button>
                     </div>
                 </div>
-            </div>
-            <div class="pastEvent hide">
+            </div> -->
+    <!-- <div class="pastEvent hide">
                 <div class="input-group mb-3">
                     <a class="userInput" id="eventID3" type="text"></a>
                     <input type="text" role="alert" class="form-control alert alert-success" placeholder="Things to do"
@@ -105,7 +236,7 @@ THEN the saved events persist
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
