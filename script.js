@@ -1,10 +1,9 @@
 
 
 
-const timeDisplayElem = document.getElementById("timeDisplay");
+const timeDisplay = document.getElementById("timeDisplay");
 const textInput = document.getElementById("textInput");
 const timeStamp = document.getElementById("timeStamp");
-const userInput = document.getElementById("eventID3");
 
 const button8AM = document.getElementById("8AMsave-btn");
 const button9AM = document.getElementById("9AMsave-btn");
@@ -42,18 +41,17 @@ const eventID4PM = document.getElementById("eventID4PM");
 const eventID5PM = document.getElementById("eventID5PM");
 const eventID6PM = document.getElementById("eventID6PM");
 
-
 button8AM.addEventListener("click", saveActivity);
-// button9AM.addEventListener("click", saveActivity);
-// button10AM.addEventListener("click", saveActivity);
-// button11AM.addEventListener("click", saveActivity);
-// button12PM.addEventListener("click", saveActivity);
-// button1PM.addEventListener("click", saveActivity);
-// button2PM.addEventListener("click", saveActivity);
-// button3PM.addEventListener("click", saveActivity);
-// button4PM.addEventListener("click", saveActivity);
-// button5PM.addEventListener("click", saveActivity);
-// button6PM.addEventListener("click", saveActivity);
+button9AM.addEventListener("click", saveActivity);
+button10AM.addEventListener("click", saveActivity);
+button11AM.addEventListener("click", saveActivity);
+button12PM.addEventListener("click", saveActivity);
+button1PM.addEventListener("click", saveActivity);
+button2PM.addEventListener("click", saveActivity);
+button3PM.addEventListener("click", saveActivity);
+button4PM.addEventListener("click", saveActivity);
+button5PM.addEventListener("click", saveActivity);
+button6PM.addEventListener("click", saveActivity);
 
 
 let textInputs = [textInput6PM, textInput5PM, textInput4PM, textInput3PM, textInput2PM, textInput1PM, textInput12PM,
@@ -63,10 +61,82 @@ let textInputs = [textInput6PM, textInput5PM, textInput4PM, textInput3PM, textIn
 let buttonElements = [button6PM, button5PM, button4PM, button3PM, button2PM, button1PM, button12PM,
                         button11AM, button10AM, button9AM, button8AM]
 
-// let eventID = [eventID6PM, eventID5PM, eventID4PM, eventID3PM, eventID2PM, eventID1PM, eventID12PM,
-//                         eventID11AM, eventID10AM, eventID9AM, eventID8AM]
+let eventID = [eventID6PM, eventID5PM, eventID4PM, eventID3PM, eventID2PM, eventID1PM, eventID12PM,
+    eventID11AM, eventID10AM, eventID9AM, eventID8AM]
+    
+    let hourNumber = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8]
+    
+    let hour = new Date();
+    document.getElementById("demo").innerHTML = hour.getHours();
+    
+    
+    
+    for(i = 0; i < hourNumber.length; i++){
+        //check for each index of eventID[]
+        let eventID = hourNumber[i].value;
+        // let textInput = textInputs[i].value;
+        
+        //check is current hour (line 71) > eventID(parseInt data-class)
+        if(hour.value < eventID){
+    document.getElementById(textInputs[i]).classList.add("past");
+            else(hour.value === eventID){
+    document.getElementById(textInputs[i]).classList.add("present")
+            } 
+        }  
+        });
 
-// let hourNumber = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8]
+    for(i = 0; i < hourNumber.length; i++){
+        if(hour.value === "data-class".value){
+            document.getElementById(textInputs[i]).classList.add(".present");
+    }
+            else(hour.value > "data-class".value){
+       document.getElementById(textInputs[i]).classList.add(".past");
+            }
+        }
+
+        // parseInt
+                    
+                    eventID[i];
+                    
+    $(eventID[i]).css("background-color", "yellow");
+                    
+                }
+
+                
+    function saveActivity(){
+        event.preventDefault();
+        let calendar = {};
+        for(i = 0; i < buttonElements.length; i++){
+        let buttonValue = buttonElements[i].value;
+        let userInput = textInputs[i].value;   
+        calendar[buttonValue] = userInput
+        }
+        localStorage.setItem("calendarTimes", JSON.stringify(calendar));
+            setHour();
+                    // setPastPresent();    
+                }
+                
+                
+                
+            for(let i = 0; i < eventID.length; i++){
+                let eventTime = eventID[i].value;
+                let hourNumber = hourNumber[i].value;
+                console.log(eventTime);
+                console.log(hourNumber);
+             }
+        
+    
+    function setHourValue(){
+        event.preventDefault(); 
+}
+
+// let time = timeStamp;
+// let textInput;
+
+// console.log($(this).siblings());
+// jquery selector this .parent
+// save to localStorage
+// this.siblings jquery selector
 
 // let eventID8AM =  8;
 // let eventID9AM =  9;
@@ -81,50 +151,6 @@ let buttonElements = [button6PM, button5PM, button4PM, button3PM, button2PM, but
 // let eventID6PM =  18;
 
 
-// let time = timeStamp;
-// let textInput;
-
-let hour = new Date();
-document.getElementById("demo").innerHTML = hour.getHours();
-
-
-// console.log($(this).siblings());
-// jquery selector this .parent
-// save to localStorage
-// this.siblings jquery selector
-function saveActivity(){
-    event.preventDefault();
-    let calendar = {};
-    for(i = 0; i < buttonElements.length; i++){
-            let buttonValue = buttonElements[i].value;
-            let userInput = textInputs[i].value;   
-            calendar[buttonValue] = userInput
-        }
-        localStorage.setItem("calendarTimes", JSON.stringify(calendar));
-        setHour();
-        // setPastPresent();    
-}
-
-function setHour(){
-    for(i = 0; i < hourNumber.length; i++){
-    let v = eventID[i];
-    let eventTime = eventID[i].value;
-    // let hourNumber = hourNumber[i].value;
-        console.log(eventTime);
-        // console.log(hourNumber);
-    }
-}
-
-
-// function setPastPresent(){
-//  if(hour.value <= hourNumber){
-//         let textInput.classList.add("past");
-//      if(hour.value === hourNumber){
-// ("#textInput8AM").classList.add(".future")
-//   textInput.classList.add("present")
-//      }   
-//      else ()//do Nothing
-//     });
 
 
 
@@ -195,19 +221,6 @@ function setHour(){
 
 
 // saveButton.addEventListener("click", saveTextInput)
-
-
-// let date = new Date();
-// document.write(date);
-
-
-// function saveTextInput(){
-//     console.log("save click");
-
-//     //add textInput to local storage and persist
-
-// }
-
 
     // should add the input box after each time if possible
 
