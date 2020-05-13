@@ -43,7 +43,7 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
  -->
-
+ <p id="demo" class="getHours"></p>
     <div class="card">
         <div class="card-body">
             <div class="content" id="schedule"></div>
@@ -51,9 +51,8 @@ THEN the saved events persist
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
                     <span class="badge badge-light" id="8AM" type="text">8:00 AM</span>
-                    <a class="userInput" id="eventID3" type="text"></a> 
-                    <!-- possible 2nd id="8AMtextInput" -->
-                    <input type="text" role="alert" id="textInput8AM" class="form-control alert alert-light past present future"
+                    <a class="userInput" id="eventID8AM" type="text"></a> 
+                    <input type="text" role="alert" id="textInput8AM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="8:00 AM" type="button" id="8AMsave-btn">Save</button>
@@ -65,8 +64,8 @@ THEN the saved events persist
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
                     <span class="badge badge-light" id="9AM" type="text">9:00 AM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput9AM" class="form-control alert alert-light past present future"
+                    <a class="userInput" id="eventID9AM" type="text"></a>
+                    <input type="text" role="alert" id="textInput9AM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="9:00 AM" type="button" id="9AMsave-btn">Save</button>
@@ -78,8 +77,8 @@ THEN the saved events persist
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
                     <span class="badge badge-light" id="10AM" type="text">10:00 AM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput10AM" class="form-control alert alert-light past present future"
+                    <a class="userInput" id="eventID10AM" type="text"></a>
+                    <input type="text" role="alert" id="textInput10AM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="10:00 AM" type="button" id="10AMsave-btn">Save</button>
@@ -90,9 +89,9 @@ THEN the saved events persist
             <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="timeDisplay eventSpan4 11AM" type="text">11:00 AM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput11AM" class="form-control alert alert-light past present future"
+                    <span class="badge badge-light" id="11AM" type="text">11:00 AM</span>
+                    <a class="userInput" id="eventID11AM" type="text"></a>
+                    <input type="text" role="alert" id="textInput11AM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="11:00 AM" type="button" id="11AMsave-btn">Save</button>
@@ -103,9 +102,9 @@ THEN the saved events persist
             <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="timeDisplay eventSpan5 12PM" type="text">12:00 PM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput12PM" class="form-control alert alert-light past present future"
+                    <span class="badge badge-light" id="12PM" type="text">12:00 PM</span>
+                    <a class="userInput" id="eventID12PM" type="text"></a>
+                    <input type="text" role="alert" id="textInput12PM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="12:00 PM" type="button" id="12PMsave-btn">Save</button>
@@ -116,9 +115,9 @@ THEN the saved events persist
             <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="timeDisplay eventSpan6 1PM" type="text">1:00 PM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput1PM" class="form-control alert alert-light past present future"
+                    <span class="badge badge-light" id="1PM" type="text">1:00 PM</span>
+                    <a class="userInput" id="eventID1PM" type="text"></a>
+                    <input type="text" role="alert" id="textInput1PM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="1:00 PM" type="button" id="1PMsave-btn">Save</button>
@@ -129,9 +128,9 @@ THEN the saved events persist
             <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="timeDisplay eventSpan7 2PM" type="text">2:00 PM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput2PM" class="form-control alert alert-light past present future"
+                    <span class="badge badge-light" id="2PM" type="text">2:00 PM</span>
+                    <a class="userInput" id="eventID2PM" type="text"></a>
+                    <input type="text" role="alert" id="textInput2PM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="2:00 PM" type="button" id="2PMsave-btn">Save</button>
@@ -142,9 +141,9 @@ THEN the saved events persist
             <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="timeDisplay eventSpan8 3PM" type="text">3:00 PM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput3PM" class="form-control alert alert-light past present future"
+                    <span class="badge badge-light" id="3PM" type="text">3:00 PM</span>
+                    <a class="userInput" id="eventID3PM" type="text"></a>
+                    <input type="text" role="alert" id="textInput3PM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="3:00 PM" type="button" id="3PMsave-btn">Save</button>
@@ -155,9 +154,9 @@ THEN the saved events persist
             <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="timeDisplay eventSpan9 4PM" type="text">4:00 PM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput4PM" class="form-control alert alert-light past present future"
+                    <span class="badge badge-light" id="4PM" type="text">4:00 PM</span>
+                    <a class="userInput" id="eventID4PM" type="text"></a>
+                    <input type="text" role="alert" id="textInput4PM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="4:00 PM" type="button" id="4PMsave-btn">Save</button>
@@ -168,9 +167,9 @@ THEN the saved events persist
             <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="timeDisplay eventSpan10 5PM" type="text">5:00 PM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput5PM" class="form-control alert alert-light past present future"
+                    <span class="badge badge-light" id="5PM" type="text">5:00 PM</span>
+                    <a class="userInput" id="eventID5PM" type="text"></a>
+                    <input type="text" role="alert" id="textInput5PM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="5:00 PM" type="button" id="5PMsave-btn">Save</button>
@@ -181,9 +180,9 @@ THEN the saved events persist
             <div class="futureEvent emptyEvent" id="defaultEvent">
                 <div class="input-group mb-3">
                     <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="timeDisplay eventSpan11 6PM" type="text">6:00 PM</span>
-                    <a class="userInput" id="eventID3" type="text"></a>
-                    <input type="text" role="alert" id="textInput6PM" class="form-control alert alert-light past present future"
+                    <span class="badge badge-light" id="6PM" type="text">6:00 PM</span>
+                    <a class="userInput" id="eventID6PM" type="text"></a>
+                    <input type="text" role="alert" id="textInput6PM" class="form-control alert alert-light future"
                         placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary save-btn" value="6:00 PM" type="button" id="6PMsave-btn">Save</button>

@@ -30,32 +30,31 @@ const textInput4PM = document.getElementById("textInput4PM");
 const textInput5PM = document.getElementById("textInput5PM");
 const textInput6PM = document.getElementById("textInput6PM");
 
+const eventID8AM = document.getElementById("eventID8AM");
+const eventID9AM = document.getElementById("eventID9AM");
+const eventID10AM = document.getElementById("eventID10AM");
+const eventID11AM = document.getElementById("eventID11AM");
+const eventID12PM = document.getElementById("eventID12PM");
+const eventID1PM = document.getElementById("eventID1PM");
+const eventID2PM = document.getElementById("eventID2PM");
+const eventID3PM = document.getElementById("eventID3PM");
+const eventID4PM = document.getElementById("eventID4PM");
+const eventID5PM = document.getElementById("eventID5PM");
+const eventID6PM = document.getElementById("eventID6PM");
+
+
 button8AM.addEventListener("click", saveActivity);
-button9AM.addEventListener("click", saveActivity);
-button10AM.addEventListener("click", saveActivity);
-button11AM.addEventListener("click", saveActivity);
-button12PM.addEventListener("click", saveActivity);
-button1PM.addEventListener("click", saveActivity);
-button2PM.addEventListener("click", saveActivity);
-button3PM.addEventListener("click", saveActivity);
-button4PM.addEventListener("click", saveActivity);
-button5PM.addEventListener("click", saveActivity);
-button6PM.addEventListener("click", saveActivity);
+// button9AM.addEventListener("click", saveActivity);
+// button10AM.addEventListener("click", saveActivity);
+// button11AM.addEventListener("click", saveActivity);
+// button12PM.addEventListener("click", saveActivity);
+// button1PM.addEventListener("click", saveActivity);
+// button2PM.addEventListener("click", saveActivity);
+// button3PM.addEventListener("click", saveActivity);
+// button4PM.addEventListener("click", saveActivity);
+// button5PM.addEventListener("click", saveActivity);
+// button6PM.addEventListener("click", saveActivity);
 
-// let eventSpan11 = button6PMElement;
-// let eventSpan10 = button5PMElement;
-// let eventSpan9 = button4PMElement;
-// let eventSpan8 = button3PMElement;
-// let eventSpan7 = button2PMElement;
-// let eventSpan6 = button1PMElement;
-// let eventSpan5 = button12PMElement;
-// let eventSpan4 = button11AMElement;
-// let eventSpan3 = button10AMElement;
-// let eventSpan2 = button9AMElement;
-// let eventSpan1 = button8AMElement;
-
-// let eventSpanForLoop = [eventSpan1, eventSpan2, eventSpan3, eventSpan4, eventSpan5, eventSpan6, eventSpan7, 
-//                         eventSpan8, eventSpan9, eventSpan10,eventSpan11]
 
 let textInputs = [textInput6PM, textInput5PM, textInput4PM, textInput3PM, textInput2PM, textInput1PM, textInput12PM,
                     textInput11AM, textInput10AM, textInput9AM, textInput8AM]
@@ -63,9 +62,30 @@ let textInputs = [textInput6PM, textInput5PM, textInput4PM, textInput3PM, textIn
 
 let buttonElements = [button6PM, button5PM, button4PM, button3PM, button2PM, button1PM, button12PM,
                         button11AM, button10AM, button9AM, button8AM]
+
+// let eventID = [eventID6PM, eventID5PM, eventID4PM, eventID3PM, eventID2PM, eventID1PM, eventID12PM,
+//                         eventID11AM, eventID10AM, eventID9AM, eventID8AM]
+
+// let hourNumber = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8]
+
+// let eventID8AM =  8;
+// let eventID9AM =  9;
+// let eventID10AM = 10;
+// let eventID11AM = 11;
+// let eventID12PM = 12;
+// let eventID1PM =  13;
+// let eventID2PM =  14;
+// let eventID3PM =  15;
+// let eventID4PM =  16;
+// let eventID5PM =  17;
+// let eventID6PM =  18;
+
+
 // let time = timeStamp;
 // let textInput;
 
+let hour = new Date();
+document.getElementById("demo").innerHTML = hour.getHours();
 
 
 // console.log($(this).siblings());
@@ -75,15 +95,36 @@ let buttonElements = [button6PM, button5PM, button4PM, button3PM, button2PM, but
 function saveActivity(){
     event.preventDefault();
     let calendar = {};
-    
     for(i = 0; i < buttonElements.length; i++){
             let buttonValue = buttonElements[i].value;
             let userInput = textInputs[i].value;   
             calendar[buttonValue] = userInput
         }
         localStorage.setItem("calendarTimes", JSON.stringify(calendar));
+        setHour();
+        // setPastPresent();    
 }
 
+function setHour(){
+    for(i = 0; i < hourNumber.length; i++){
+    let v = eventID[i];
+    let eventTime = eventID[i].value;
+    // let hourNumber = hourNumber[i].value;
+        console.log(eventTime);
+        // console.log(hourNumber);
+    }
+}
+
+
+// function setPastPresent(){
+//  if(hour.value <= hourNumber){
+//         let textInput.classList.add("past");
+//      if(hour.value === hourNumber){
+// ("#textInput8AM").classList.add(".future")
+//   textInput.classList.add("present")
+//      }   
+//      else ()//do Nothing
+//     });
 
 
 
@@ -94,9 +135,6 @@ function saveActivity(){
     // get value of 
 // }
 
-// function setPastPresentFuture(){
-if(time <=
-// }
 
 
 
