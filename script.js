@@ -71,7 +71,7 @@ let eventID = [eventID6PM, eventID5PM, eventID4PM, eventID3PM, eventID2PM, event
     
     
     
-    for(i = 0; i < hourNumber.length; i++){
+    for(let i = 0; i < hourNumber.length; i++){
         //check for each index of eventID[]
         let eventID = hourNumber[i].value;
         // let textInput = textInputs[i].value;
@@ -79,19 +79,17 @@ let eventID = [eventID6PM, eventID5PM, eventID4PM, eventID3PM, eventID2PM, event
         //check is current hour (line 71) > eventID(parseInt data-class)
         if(hour.value < eventID){
     document.getElementById(textInputs[i]).classList.add("past");
-            else(hour.value === eventID){
+            elseif(hour.value === eventID);
     document.getElementById(textInputs[i]).classList.add("present")
-            } 
         }  
-        });
+        };
 
-    for(i = 0; i < hourNumber.length; i++){
+    for(let i = 0; i < hourNumber.length; i++){
         if(hour.value === "data-class".value){
             document.getElementById(textInputs[i]).classList.add(".present");
     }
-            else(hour.value > "data-class".value){
+            elseif(hour.value > "data-class".value)
        document.getElementById(textInputs[i]).classList.add(".past");
-            }
         }
 
         // parseInt
@@ -99,14 +97,12 @@ let eventID = [eventID6PM, eventID5PM, eventID4PM, eventID3PM, eventID2PM, event
                     eventID[i];
                     
     $(eventID[i]).css("background-color", "yellow");
-                    
-                }
 
                 
     function saveActivity(){
         event.preventDefault();
         let calendar = {};
-        for(i = 0; i < buttonElements.length; i++){
+        for(let i = 0; i < buttonElements.length; i++){
         let buttonValue = buttonElements[i].value;
         let userInput = textInputs[i].value;   
         calendar[buttonValue] = userInput
@@ -169,14 +165,14 @@ let eventID = [eventID6PM, eventID5PM, eventID4PM, eventID3PM, eventID2PM, event
     // }
     
     // function setButtonElement(){
-    //     for(i = 0; i< buttonElements.length; i++){
+    //     for(let i = 0; i< buttonElements.length; i++){
     //             let buttonElements;
     //         let userInput = [i];
 
     //         console.log(userInput);
     //     }
     // }
-        //     for(i = 0; i < eventSpanForLoop.length; i++){
+        //     for(let i = 0; i < eventSpanForLoop.length; i++){
         // let activity = [i];
         // console.log(i);
 
