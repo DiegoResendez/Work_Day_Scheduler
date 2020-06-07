@@ -41,15 +41,15 @@ $('textarea').each(function(){
 });
 
 $('button').on('click', function(){
-    let btnFor = $(this).attr("for"); // get the 'for' value (html has for in the btn and same ID in the text area)
-    let textArea = $('#' + btnFor); // basically, we're generating a string for the ID, ex #hour9
+    let btnFor = $(this).attr("for");
+    let textArea = $('#' + btnFor); 
     console.log(textArea);
-    let hour = textArea.data("hour"); // set the hour to the value held in the selected buttons related text area's data-hour field
-    let index = hour - 9; // creating an index hour value - 9. ex. hour 9 - 9 = index of 0 into the entries array
+    let hour = textArea.data("hour"); 
+    let index = hour - 9; 
     
-    entries[index].text = textArea.val(); // set the value of the entry index array to the text within the text area
+    entries[index].text = textArea.val(); 
     
-    let json = JSON.stringify(entries); // stringify the entire entries array
+    let json = JSON.stringify(entries); 
     localStorage.setItem(storageKey, json);
 });
 
