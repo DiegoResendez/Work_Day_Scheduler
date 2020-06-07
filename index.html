@@ -1,209 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"  
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
     <title>Work Day Scheduler</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    <div class="container">
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Work Day Scheduler</h1>
-            <p class="lead">A simple calendar app to for scheduling your day</p>
-            <script type="text/javascript" class="calendarDate" id="timeStamp">
-
-                let date = new Date();
-                document.write(date);
-            </script>
-
-
+      <!-- row -->
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">9:00 AM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour9" data-hour="9"></textarea>
         </div>
-    </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour9" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
 
-    <!-- GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
- -->
- <p id="demo" class="getHours"></p>
-    <div class="card">
-        <div class="card-body">
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="8AM" type="text"> 8:00 AM</span>
-                    <a class="userInput" id="eventID8AM" type="text"></a> 
-                    <input type="text" role="alert" id="textInput8AM" data-class="8" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="8:00 AM" type="button" id="8AMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="9AM" type="text"> 9:00 AM</span>
-                    <a class="userInput" id="eventID9AM" type="text"></a>
-                    <input type="text" role="alert" id="textInput9AM" data-class="9" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="9:00 AM" type="button" id="9AMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="10AM" type="text">10:00 AM</span>
-                    <a class="userInput" id="eventID10AM" type="text"></a>
-                    <input type="text" role="alert" id="textInput10AM" data-class="10" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="10:00 AM" type="button" id="10AMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="11AM" type="text">11:00 AM</span>
-                    <a class="userInput" id="eventID11AM" type="text"></a>
-                    <input type="text" role="alert" id="textInput11AM" data-class="11" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="11:00 AM" type="button" id="11AMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="12PM" type="text">12:00 PM</span>
-                    <a class="userInput" id="eventID12PM" type="text"></a>
-                    <input type="text" role="alert" id="textInput12PM" data-class="12" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="12:00 PM" type="button" id="12PMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="1PM" type="text"> 1:00 PM</span>
-                    <a class="userInput" id="eventID1PM" type="text"></a>
-                    <input type="text" role="alert" id="textInput1PM" data-class="13" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="1:00 PM" type="button" id="1PMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="2PM" type="text"> 2:00 PM</span>
-                    <a class="userInput" id="eventID2PM" type="text"></a>
-                    <input type="text" role="alert" id="textInput2PM" data-class="14" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="2:00 PM" type="button" id="2PMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="3PM" type="text"> 3:00 PM</span>
-                    <a class="userInput" id="eventID3PM" type="text"></a>
-                    <input type="text" role="alert" id="textInput3PM" data-class="15" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="3:00 PM" type="button" id="3PMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="4PM" type="text"> 4:00 PM</span>
-                    <a class="userInput" id="eventID4PM" type="text"></a>
-                    <input type="text" role="alert" id="textInput4PM" data-class="16" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="4:00 PM" type="button" id="4PMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="5PM" type="text"> 5:00 PM</span>
-                    <a class="userInput" id="eventID5PM" type="text"></a>
-                    <input type="text" role="alert" id="textInput5PM" data-class="17" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="5:00 PM" type="button" id="5PMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="schedule"></div>
-            <div class="futureEvent emptyEvent" id="defaultEvent">
-                <div class="input-group mb-3">
-                    <div class="timePlaceHolder" id="eventSpan"></div>
-                    <span class="badge badge-light" id="6PM" type="text"> 6:00 PM</span>
-                    <a class="userInput" id="eventID6PM" type="text"></a>
-                    <input type="text" role="alert" id="textInput6PM" data-class="18" class="form-control alert alert-light future"
-                        placeholder="Things to do" aria-label="Things to do" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary save-btn" value="6:00 PM" type="button" id="6PMsave-btn">Save</button>
-                    </div>
-                </div>
-            </div>
-</div>
-</div>
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
 
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">10:00 AM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour10" data-hour="10"></textarea>
+        </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour10" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">11:00 AM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour11" data-hour="11"></textarea>
+        </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour11" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">12:00 PM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour12" data-hour="12"></textarea>
+        </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour12" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">1:00 PM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour13" data-hour="13"></textarea>
+        </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour13" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">2:00 PM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour14" data-hour="14"></textarea>
+        </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour14" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">3:00 PM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour15" data-hour="15"></textarea>
+        </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour15" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">4:00 PM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour16" data-hour="16"></textarea>
+        </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour16" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time-block col-lg-1 border-top border-bottom">5:00 PM</div>
+        <div class="col-lg-10 p-0 border-top">
+                <textarea id="hour17" data-hour="17"></textarea>
+        </div>
+        <div class="col-lg-1 p-0">
+          <button for="hour17" class="saveBtn" style="height: 100%; width: 100%"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

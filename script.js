@@ -1,228 +1,63 @@
+$('#currentDay').text(moment().format('dddd, MMMM Do, YYYY'));
+
+let currentHour = moment().format('H');
+let storageKey = "entryArray";
+let entries = [];
+let storageObj = localStorage.getItem(storageKey);
+let entriesExist = false;
 
 
-
-const timeDisplay = document.getElementById("timeDisplay");
-const textInput = document.getElementById("textInput");
-const timeStamp = document.getElementById("timeStamp");
-
-const button8AM = document.getElementById("8AMsave-btn");
-const button9AM = document.getElementById("9AMsave-btn");
-const button10AM = document.getElementById("10AMsave-btn");
-const button11AM = document.getElementById("11AMsave-btn");
-const button12PM = document.getElementById("12PMsave-btn");
-const button1PM = document.getElementById("1PMsave-btn");
-const button2PM = document.getElementById("2PMsave-btn");
-const button3PM = document.getElementById("3PMsave-btn");
-const button4PM = document.getElementById("4PMsave-btn");
-const button5PM = document.getElementById("5PMsave-btn");
-const button6PM = document.getElementById("6PMsave-btn");
-
-const textInput8AM = document.getElementById("textInput8AM");
-const textInput9AM = document.getElementById("textInput9AM");
-const textInput10AM = document.getElementById("textInput10AM");
-const textInput11AM = document.getElementById("textInput11AM");
-const textInput12PM = document.getElementById("textInput12PM");
-const textInput1PM = document.getElementById("textInput1PM");
-const textInput2PM = document.getElementById("textInput2PM");
-const textInput3PM = document.getElementById("textInput3PM");
-const textInput4PM = document.getElementById("textInput4PM");
-const textInput5PM = document.getElementById("textInput5PM");
-const textInput6PM = document.getElementById("textInput6PM");
-
-const eventID8AM = document.getElementById("eventID8AM");
-const eventID9AM = document.getElementById("eventID9AM");
-const eventID10AM = document.getElementById("eventID10AM");
-const eventID11AM = document.getElementById("eventID11AM");
-const eventID12PM = document.getElementById("eventID12PM");
-const eventID1PM = document.getElementById("eventID1PM");
-const eventID2PM = document.getElementById("eventID2PM");
-const eventID3PM = document.getElementById("eventID3PM");
-const eventID4PM = document.getElementById("eventID4PM");
-const eventID5PM = document.getElementById("eventID5PM");
-const eventID6PM = document.getElementById("eventID6PM");
-
-button8AM.addEventListener("click", saveActivity);
-button9AM.addEventListener("click", saveActivity);
-button10AM.addEventListener("click", saveActivity);
-button11AM.addEventListener("click", saveActivity);
-button12PM.addEventListener("click", saveActivity);
-button1PM.addEventListener("click", saveActivity);
-button2PM.addEventListener("click", saveActivity);
-button3PM.addEventListener("click", saveActivity);
-button4PM.addEventListener("click", saveActivity);
-button5PM.addEventListener("click", saveActivity);
-button6PM.addEventListener("click", saveActivity);
-
-
-let textInputs = [textInput6PM, textInput5PM, textInput4PM, textInput3PM, textInput2PM, textInput1PM, textInput12PM,
-                    textInput11AM, textInput10AM, textInput9AM, textInput8AM]
-
-
-let buttonElements = [button6PM, button5PM, button4PM, button3PM, button2PM, button1PM, button12PM,
-                        button11AM, button10AM, button9AM, button8AM]
-
-let eventID = [eventID6PM, eventID5PM, eventID4PM, eventID3PM, eventID2PM, eventID1PM, eventID12PM,
-    eventID11AM, eventID10AM, eventID9AM, eventID8AM]
-    
-    let hourNumber = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8]
-    
-    let hour = new Date();
-    document.getElementById("demo").innerHTML = hour.getHours();
-    
-    
-    
-    for(let i = 0; i < hourNumber.length; i++){
-        //check for each index of eventID[]
-        let eventID = hourNumber[i].value;
-        // let textInput = textInputs[i].value;
-        
-        //check is current hour (line 71) > eventID(parseInt data-class)
-        if(hour.value < eventID){
-    document.getElementById(textInputs[i]).classList.add("past");
-            elseif(hour.value === eventID);
-    document.getElementById(textInputs[i]).classList.add("present")
-        }  
-        };
-
-    for(let i = 0; i < hourNumber.length; i++){
-        if(hour.value === "data-class".value){
-            document.getElementById(textInputs[i]).classList.add(".present");
+if(localStorage.getItem(storageKey))
+{
+    entriesExist = true;
+    entries = JSON.parse(storageObj);
+    //console.log(entries);
+}
+else{
+    entries = [];
+    for(let i = 9; i < 18; i++)
+    {
+        let newEntry = {hour: i, text: ""};
+        entries.push(newEntry);
     }
-            elseif(hour.value > "data-class".value)
-       document.getElementById(textInputs[i]).classList.add(".past");
-        }
-
-        // parseInt
-                    
-                    eventID[i];
-                    
-    $(eventID[i]).css("background-color", "yellow");
-
-                
-    function saveActivity(){
-        event.preventDefault();
-        let calendar = {};
-        for(let i = 0; i < buttonElements.length; i++){
-        let buttonValue = buttonElements[i].value;
-        let userInput = textInputs[i].value;   
-        calendar[buttonValue] = userInput
-        }
-        localStorage.setItem("calendarTimes", JSON.stringify(calendar));
-            setHour();
-                    // setPastPresent();    
-                }
-                
-                
-                
-            for(let i = 0; i < eventID.length; i++){
-                let eventTime = eventID[i].value;
-                let hourNumber = hourNumber[i].value;
-                console.log(eventTime);
-                console.log(hourNumber);
-             }
-        
-    
-    function setHourValue(){
-        event.preventDefault(); 
 }
 
-// let time = timeStamp;
-// let textInput;
+renderEntries();
 
-// console.log($(this).siblings());
-// jquery selector this .parent
-// save to localStorage
-// this.siblings jquery selector
+$('textarea').each(function(){
+    //console.log("inside each");
+    let textArea = $(this);
+    console.log(textArea);
+    if(parseInt(textArea.attr("data-hour")) < parseInt(currentHour)){
+        textArea.attr("class", "past");
+        //console.log(this);
+    }
+    else if(parseInt(textArea.attr("data-hour")) === parseInt(currentHour)){
+        textArea.attr("class", "present");
+    }
+    else if(parseInt(textArea.attr("data-hour")) > parseInt(currentHour)){
+        textArea.attr("class", "future");
+    }
+});
 
-// let eventID8AM =  8;
-// let eventID9AM =  9;
-// let eventID10AM = 10;
-// let eventID11AM = 11;
-// let eventID12PM = 12;
-// let eventID1PM =  13;
-// let eventID2PM =  14;
-// let eventID3PM =  15;
-// let eventID4PM =  16;
-// let eventID5PM =  17;
-// let eventID6PM =  18;
-
-
-
-
-
-// check localStorage get function for values.  for loop for data to repopulate calendar.
-
-
-// function hourUpdater(){
-    // get value of 
-// }
-
-
-
-
-
-// function setThingToDo() {    
-    // }
+$('button').on('click', function(){
+    let btnFor = $(this).attr("for"); // get the 'for' value (html has for in the btn and same ID in the text area)
+    let textArea = $('#' + btnFor); // basically, we're generating a string for the ID, ex #hour9
+    console.log(textArea);
+    let hour = textArea.data("hour"); // set the hour to the value held in the selected buttons related text area's data-hour field
+    let index = hour - 9; // creating an index hour value - 9. ex. hour 9 - 9 = index of 0 into the entries array
     
-    // function setButtonElement(){
-    //     for(let i = 0; i< buttonElements.length; i++){
-    //             let buttonElements;
-    //         let userInput = [i];
-
-    //         console.log(userInput);
-    //     }
-    // }
-        //     for(let i = 0; i < eventSpanForLoop.length; i++){
-        // let activity = [i];
-        // console.log(i);
-
-
-// document.getElementById('8AMsave-btn').addEventListener("click", saveActivity); 
-
-
-// let todos = [];
-
-// function saveToDo = (ev)=>{
-//     ev.preventDefault();
-//     let todo = {
-//         id: Date.now(),
-//         activity: document.getElementById("textInput").textContent
-//     } 
-//     console.log(textContent)
-//     todos.push(todo);
+    entries[index].text = textArea.val(); // set the value of the entry index array to the text within the text area
     
-//     //for display purposes only
-//     console.warn('added', {todos});
-//     let pre = document.querySelector('#save-btn')
-// };
+    let json = JSON.stringify(entries); // stringify the entire entries array
+    localStorage.setItem(storageKey, json);
+});
 
-// function saveTextInput(){
-    
-//     function saveToDo(){
-        
-//     }
-    
-//     console.log("saveTextInput")
-    
-    //save to local storage
-//     localStorage.setItem("#textInput", JSON.stringify(todos));
-    
-// }
-// document.addEventListener('DOMContentLoaded', ()=>{
-    
-    
-    
-    // function setBackgroundColor(){
-    // }console.log("save click")
-
-
-// saveButton.addEventListener("click", saveTextInput)
-
-    // should add the input box after each time if possible
-
-//     .addEventListener("click", function(event) {
-//         event.preventDefault();
-      
-//         console.log(event);
-      
-// 
+function renderEntries() {
+    if(entriesExist){
+        console.log("entries exist");
+        entries.forEach(function(entry, index) {
+            $('#hour' + entry.hour).text(entry.text);
+        });
+    }
+}
